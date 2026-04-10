@@ -5,48 +5,30 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CreateAccountTests extends TestBase{
+
     @Test
     public void newUserRegisterPositiveTest(){
         int i = (int) ((System.currentTimeMillis()/1000)%3600);
-
         // 1. открыть страницу регистрации
-        driver.findElement(By.cssSelector("[href='/register']")).click();
-
+        click(By.cssSelector("[href='/register']"));
         // 2. заполнить форму
-        driver.findElement(By.name("FirstName")).sendKeys("Ludmilla");
-        driver.findElement(By.name("LastName")).sendKeys("Borisuk");
-        driver.findElement(By.name("Email")).sendKeys("Ludmilla" + i + "@mail.de");
-        driver.findElement(By.name("Password")).sendKeys("Aa12345!");
-        driver.findElement(By.name("ConfirmPassword")).sendKeys("Aa12345!");
-
+        type(i);
         // 3. нажать Register
-        driver.findElement(By.id("register-button")).click();
-
+        click(By.id("register-button"));
         // 4. assert (проверка)
         Assert.assertTrue(isElementPresent(By.cssSelector(".ico-logout")));
-
     }
 
     @Test
     public void existedUserRegisterNegativeTest_existingEmail(){
-
         // 1. открыть страницу регистрации
-        driver.findElement(By.cssSelector("[href='/register']")).click();
-
+        click(By.cssSelector("[href='/register']"));
         // 2. заполнить форму
-        driver.findElement(By.name("FirstName")).sendKeys("Ludmilla");
-        driver.findElement(By.name("LastName")).sendKeys("Borisuk");
-        driver.findElement(By.name("Email")).sendKeys("Ludmilla1168@mail.de");
-        driver.findElement(By.name("Password")).sendKeys("Aa12345!");
-        driver.findElement(By.name("ConfirmPassword")).sendKeys("Aa12345!");
-
+        type();
         // 3. нажать Register
-        driver.findElement(By.id("register-button")).click();
-
+        click(By.id("register-button"));
         // 4. assert ошибки
         Assert.assertTrue(isElementPresent(By.cssSelector(".validation-summary-errors")));
-
     }
-
 
 }

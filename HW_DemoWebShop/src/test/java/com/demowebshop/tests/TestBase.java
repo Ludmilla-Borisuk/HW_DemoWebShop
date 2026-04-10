@@ -34,4 +34,24 @@ public class TestBase {
         driver.quit();
 
     }
+
+    public void type(int i) {
+        driver.findElement(By.name("FirstName")).sendKeys("Ludmilla");
+        driver.findElement(By.name("LastName")).sendKeys("Borisuk");
+        driver.findElement(By.name("Email")).sendKeys("Ludmilla" + i + "@mail.de");
+        driver.findElement(By.name("Password")).sendKeys("Aa12345!");
+        driver.findElement(By.name("ConfirmPassword")).sendKeys("Aa12345!");
+    }
+
+    public void click(By locator) {
+        driver.findElement(locator).click();
+    }
+
+    public void type() {
+        driver.findElement(By.name("FirstName")).sendKeys("Ludmilla");
+        driver.findElement(By.name("LastName")).sendKeys("Borisuk");
+        driver.findElement(By.name("Email")).sendKeys("Ludmilla1168@mail.de");
+        driver.findElement(By.name("Password")).sendKeys("Aa12345!");
+        driver.findElement(By.name("ConfirmPassword")).sendKeys("Aa12345!");
+    }
 }
