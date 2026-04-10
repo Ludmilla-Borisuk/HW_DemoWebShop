@@ -1,18 +1,16 @@
 package com.demowebshop.tests;
 
-import org.openqa.selenium.By;
+import com.demowebshop.core.TestBase;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginTests extends TestBase{
+public class LoginTests extends TestBase {
 
     @Test
-    private void loginPositiveTest(){
-        driver.findElement(By.cssSelector(".ico-login")).click();
+    public void loginPositiveTest(){
 
-        driver.findElement(By.name("Email")).sendKeys("Ludmilla1168@mail.de");
-        driver.findElement(By.name("Password")).sendKeys("Aa12345!");
-        driver.findElement(By.cssSelector("[value='Log in']")).click();
+        app.getUser().login();
+
+        Assert.assertTrue(app.getUser().isLoggedIn());
     }
-
-
 }

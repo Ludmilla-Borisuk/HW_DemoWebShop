@@ -1,15 +1,14 @@
 package com.demowebshop.tests;
 
+import com.demowebshop.core.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class HomePageTests extends TestBase{
+public class HomePageTests extends TestBase {
 
     @Test
     public void isHomeComponentPresentTest(){
-        //System.out.println("Home Component is " + isHomeComponentPresent());
-        Assert.assertTrue(isHomeComponentPresent());
+
+        Assert.assertTrue(app.getUser().isHomePage());
     }
-
-
 }
