@@ -10,6 +10,7 @@ public class TestBase {
     @BeforeMethod
     public void setUp(){
 
+        // 👉 здесь задаётся дефолтный браузер
         String browser = System.getProperty("browser", "chrome");
 
         app = new ApplicationManager(browser);
