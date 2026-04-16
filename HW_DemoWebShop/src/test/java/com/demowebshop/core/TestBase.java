@@ -5,10 +5,14 @@ import org.testng.annotations.BeforeMethod;
 
 public class TestBase {
 
-    protected ApplicationManager app = new ApplicationManager();
+    protected ApplicationManager app;
 
     @BeforeMethod
     public void setUp(){
+
+        String browser = System.getProperty("browser", "chrome");
+
+        app = new ApplicationManager(browser);
         app.init();
     }
 

@@ -19,3 +19,9 @@ dependencies {
 test {
     useTestNG()
 }
+
+test {
+    useTestNG()
+
+    systemProperty "browser", System.getProperty("browser", "chrome")
+}
